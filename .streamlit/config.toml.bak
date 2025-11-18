@@ -1,0 +1,16 @@
+[theme]
+base="light"
+primaryColor="#7b3f97"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#f7f3fa"
+textColor="#292929"
+
+[server]
+headless = true
+
+[client]
+toolbarMode = "minimal"
+
+[ui]
+pageTitle = "Floral Elegance Designs | Cost Estimator"
+favicon = "💐"

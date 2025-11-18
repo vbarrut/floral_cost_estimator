@@ -1,0 +1,16 @@
+﻿style_key,style_label,category,units_sold,price_unit_baseline,materials_unit_baseline,labor_unit_baseline,margin_unit_baseline,count
+bridal_bouquet,Bridal Bouquet,bridal_bouquet,57,250,62.5,50,137.5,53
+bridesmaid_bouquet,Bridesmaid Bouquet,bridal_bouquet,295,70,17.5,14,38.5,77
+bridesmaid_hair_pins,Bridesmaid Hair Pins,personal,52,15,3.75,3,8.25,15
+bud_vase,Bud Vase,centerpiece,283,20,5,4,11,40
+cake_meadow,Cake Meadow,other,63,216.3793103,54.09482759,43.27586207,119.0086207,58
+dancefloor_install,Dancefloor Install,other,118,1387.654321,346.9135802,277.5308642,763.2098765,81
+flower_arch,Flower Arch,ceremony,54,1623.529412,405.8823529,324.7058824,892.9411765,51
+flower_cloud,Flower Cloud,ceremony,307,313.3040936,78.32602339,62.66081871,172.3172515,171
+flower_ground_meadow,Flower Ground Meadow,ceremony,921,686.4912281,171.622807,137.2982456,377.5701754,570
+cascading_flowers,Cascading Flowers,other,199,482.4561404,120.6140351,96.49122807,265.3508772,114
+large_arrangement,Large Arrangement,centerpiece,508,306.5116279,76.62790698,61.30232558,168.5813953,86
+medium_arrangement,Medium Arrangement,centerpiece,671,144.0298507,36.00746269,28.80597015,79.21641791,134
+small_arrangement,Small Arrangement,centerpiece,674,56.65217391,14.16304348,11.33043478,31.15869565,115
+boutonniere,Boutonniere,personal,295,20,5,4,11,77
+corsage,Corsage,personal,54,25,6.25,5,13.75,18
