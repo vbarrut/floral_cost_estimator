@@ -50,8 +50,8 @@ SERVICE_FEE_OPTIONS = {
 # ----------------------------
 # STAFF ACCESS CONTROL (password-protected view)
 # ----------------------------
-# Load password from .streamlit/secrets.toml
-STAFF_PASSWORD = st.secrets["auth"]["staff_password"]
+# Try to load staff password from Streamlit Secrets or environment variable
+STAFF_PASSWORD = st.secrets.get("FLORAL_APP_STAFF_PASS", "") or os.environ.get("FLORAL_APP_STAFF_PASS", "")
 
 # Initialize session
 if "staff_authenticated" not in st.session_state:
@@ -59,15 +59,21 @@ if "staff_authenticated" not in st.session_state:
 
 # Sidebar login prompt
 st.sidebar.markdown("### 🔐 Staff Login")
-password_input = st.sidebar.text_input("Enter staff password", type="password")
+password_input = st.sidebar.text_input("Enter staff password", type="password", placeholder="••••••••••")
 
 if password_input:
-    if password_input == STAFF_PASSWORD:
+    if STAFF_PASSWORD and password_input == STAFF_PASSWORD:
         st.session_state.staff_authenticated = True
         st.sidebar.success("✅ Access granted")
-    else:
+    elif STAFF_PASSWORD:
         st.sidebar.error("❌ Invalid password")
+    else:
+        # If no password is set in secrets, allow any non-empty password
+        if password_input.strip() != "":
+            st.session_state.staff_authenticated = True
+            st.sidebar.warning("⚠️ No staff password configured — unlocked by default")
 
+# Result
 is_staff = st.session_state.staff_authenticated
 
 # ----------------------------
