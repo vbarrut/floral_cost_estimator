@@ -59,22 +59,25 @@ if "staff_authenticated" not in st.session_state:
 
 # Sidebar login prompt
 st.sidebar.markdown("### 🔐 Staff Login")
-password_input = st.sidebar.text_input("Enter staff password", type="password", placeholder="••••••••••")
 
-if password_input:
-    if STAFF_PASSWORD and password_input == STAFF_PASSWORD:
-        st.session_state.staff_authenticated = True
-        st.sidebar.success("✅ Access granted")
-    elif STAFF_PASSWORD:
-        st.sidebar.error("❌ Invalid password")
-    else:
-        # If no password is set in secrets, allow any non-empty password
-        if password_input.strip() != "":
+# If no password is configured, lock staff mode
+if not STAFF_PASSWORD:
+    st.sidebar.warning("Staff password is not configured. Staff mode is currently disabled.")
+    password_input = None
+    is_staff = False
+else:
+    # Normal login flow
+    password_input = st.sidebar.text_input("Enter staff password", type="password", placeholder="••••••••••")
+
+    if password_input:
+        if password_input == STAFF_PASSWORD:
             st.session_state.staff_authenticated = True
-            st.sidebar.warning("⚠️ No staff password configured — unlocked by default")
+            st.sidebar.success("✅ Access granted")
+        else:
+            st.session_state.staff_authenticated = False
+            st.sidebar.error("❌ Invalid password")
 
-# Result
-is_staff = st.session_state.staff_authenticated
+    is_staff = st.session_state.staff_authenticated
 
 # ----------------------------
 # CACHING
